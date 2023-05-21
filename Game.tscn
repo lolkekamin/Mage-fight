@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwgvnen31ce17"]
+
+[ext_resource type="PackedScene" uid="uid://bdmko2uw1l0gj" path="res://board.tscn" id="1_m6a20"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5mrl"]
+font_size = 64
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" parent="." instance=ExtResource("1_m6a20")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 306.0
+offset_bottom = 306.0
+mouse_filter = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 818.0
+offset_bottom = 50.0
+text = "1                     2                     3                     4                     5                     6                     7                     8"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 818.0
+text = "A
+
+
+B
+
+
+
+C
+
+
+
+D
+
+
+
+E
+
+
+
+F
+
+
+
+G
+
+
+H"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 818.0
+offset_top = 48.0
+offset_right = 1153.0
+offset_bottom = 145.0
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 241.0
+offset_right = 820.0
+offset_bottom = 627.0
+label_settings = SubResource("LabelSettings_t5mrl")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 850.0
+offset_top = 200.0
+offset_right = 950.0
+offset_bottom = 240.0
+text = "Revive
+"
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 850.0
+offset_top = 260.0
+offset_right = 950.0
+offset_bottom = 300.0
+text = "Fireball"
+
+[node name="Button3" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 850.0
+offset_top = 320.0
+offset_right = 950.0
+offset_bottom = 360.0
+text = "Extra"
+
+[connection signal="pressed" from="Button" to="Node2D" method="_on_revive_pressed"]
+[connection signal="pressed" from="Button2" to="Node2D" method="_on_fireball_pressed"]
+[connection signal="pressed" from="Button3" to="Node2D" method="_on_extra_pressed"]
