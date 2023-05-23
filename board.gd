@@ -41,8 +41,8 @@ var textures_2 = {
 }
 var selected_pos = Vector2i(-1,-1)
 var turn = 1
-var mana_1 = 0
-var mana_2 = 0
+var mana_1 = 60
+var mana_2 = 60
 var status = false
 var state_button = false
 var fireball = false
@@ -942,10 +942,14 @@ func tile_pressed(pos: Vector2i):
 									board[selected_pos.x][selected_pos.y].type = characters.NONE
 									board[selected_pos.x][selected_pos.y].team = 0
 									if turn == 1:
-										turn = 2
+										if !extra:
+											turn = 2
+											extra = false
 										mana_1 += 1
 									else:
-										turn = 1
+										if !extra:
+											turn = 1
+											extra = false
 										mana_2 += 1
 									selected_pos = Vector2i(-1, -1)
 							characters.DRAGON:
